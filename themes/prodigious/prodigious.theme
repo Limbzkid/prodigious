@@ -1,0 +1,144 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the prodigious theme.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ * Adds body classes if certain regions have content.
+ */
+function prodigious_preprocess_html(&$variables) {
+
+  //$variables['attributes']['class'][] = 'class-name';
+  //echo '<pre>'; print_r($variables); exit;
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    if($content_type == 'work') {
+      $variables['attributes']['class'][] = 'work';
+    } else {
+      $temp = explode('|', $variables['head_title']['title']);
+      $class = strtolower(str_replace(' ', '-', trim($temp[0])));
+      //$class = strtolower(str_replace(',', ' ', trim($temp[0])));
+      $variables['attributes']['class'][] = $class;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.
+ */
+
+function prodigious_preprocess_page(&$variables) {
+  // code to get value...
+  ini_set('memory_limit','-1');
+  if (isset($node) && $node instanceof Node) {
+     // Create variable out of the current node type
+    $node_type = $node->getType();
+    // Remove page title block.
+    if (($node_type == 'page') || ($node_type == 'article')) {
+      unset($variables['page']['content']['prodigious_page_title']);
+    }
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page title templates.
+ */
+function prodigious_preprocess_page_title(&$variables) {
+
+}
+
+/**
+   * Implements hook_theme_suggestions_HOOK_alter().
+   */
+  function prodigious_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+      $content_type = $node->bundle();
+      if($node->nid->value == 7) {
+        $suggestions[] = 'page__ourwork';
+      } else if($node->nid->value == 8) {
+        $suggestions[] = 'page__contact_us';
+      } else if($node->nid->value == 31) {
+        $suggestions[] = 'page__privacy_policy';
+      } else {
+        $suggestions[] = 'page__'.$node->bundle();
+      }
+
+    }
+  }
+
+  function prodigious_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+      $content_type = $node->bundle();
+      if($node->nid->value == 7) {
+        $suggestions[] = 'node__ourwork';
+      }
+
+    }
+  }
+
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function prodigious_preprocess_node(&$variables) {
+  // Remove the "Add new comment" link on teasers or when the comment form is
+  // displayed on the page.
+  if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
+    unset($variables['content']['links']['comment']['#links']['comment-add']);
+  }
+  //echo '<pre>'; var_dump($variables['content']['body'][0]['#text']);exit;
+
+
+
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function prodigious_preprocess_block(&$variables) {
+  // Add a clearfix class to system branding blocks.
+  if ($variables['plugin_id'] == 'system_branding_block') {
+    $variables['attributes']['class'][] = 'clearfix';
+  }
+
+  //echo $variables['attributes']['id'] ;
+}
+
+
+
+/**
+ * Implements hook_preprocess_HOOK() for menu.html.twig.
+ */
+function prodigious_preprocess_menu(&$variables) {
+  $variables['attributes']['class'][] = 'clearfix';
+}
+
+function prodigious_page_attachments_alter(array &$attachments) {
+  foreach ($attachments['#attached']['html_head'] as $key => $attachment) {
+    if ($attachment[1] == 'system_meta_generator') {
+      unset($attachments['#attached']['html_head'][$key]);
+    }
+  }
+}
+
+function prodigious_form_search_block_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['keys']['#attributes']['class'] = array('searchinput');
+  $form['keys']['#attributes']['placeholder'] = t( 'Search' );
+  $form['actions']['submit']['#attributes']['class'] = array('d-none');
+}
+
+// function prodigious_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+//   $form['keys']['#attributes']['class'] = array('searchinput');
+//   $form['keys']['#attributes']['placeholder'] = t( 'Search' );
+//   $form['actions']['submit']['#attributes']['class'] = array('d-none');
+// }

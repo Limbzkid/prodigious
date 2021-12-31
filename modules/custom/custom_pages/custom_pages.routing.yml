@@ -1,0 +1,49 @@
+custom_pages.admin_page:
+  path: '/admin/contact-data'
+  defaults:
+    _controller: '\Drupal\custom_pages\Controller\customPagesController::admin_page'
+    _title: 'Contact Data'
+  requirements:
+    _permission: 'access administration pages'
+custom_pages.business_form_listing:
+  path: '/admin/contact-data/business'
+  defaults:
+    _title: 'Business Form Listing'
+    _controller: '\Drupal\custom_pages\Controller\customPagesController::business_form_listing'
+  requirements:
+    _permission: 'access administration pages'
+custom_pages.business_download:
+  path: '/admin/contact-data/business/download'
+  defaults:
+    _title: 'Business Download'
+    _controller: '\Drupal\custom_pages\Controller\customPagesController::business_download'
+  requirements:
+    _permission: 'access administration pages'
+custom_pages.enquiry_form_listing:
+  path: '/admin/contact-data/enquiry'
+  defaults:
+    _title: 'Enquiry Form Listing'
+    _controller: '\Drupal\custom_pages\Controller\customPagesController::enquiry_form_listing'
+  requirements:
+    _permission: 'access administration pages'
+custom_pages.enquiry_download:
+  path: '/admin/contact-data/enquiry/download'
+  defaults:
+    _title: 'Enquiry Download'
+    _controller: '\Drupal\custom_pages\Controller\customPagesController::enquiry_download'
+  requirements:
+    _permission: 'access administration pages'
+custom_pages.career_form_listing:
+  path: '/admin/contact-data/career'
+  defaults:
+    _title: 'Career Form Listing'
+    _controller: '\Drupal\custom_pages\Controller\customPagesController::career_form_listing'
+  requirements:
+    _permission: 'access administration pages'
+custom_pages.career_download:
+  path: '/admin/contact-data/career/download'
+  defaults:
+    _title: 'Download'
+    _controller: '\Drupal\custom_pages\Controller\customPagesController::career_download'
+  requirements:
+    _permission: 'access administration pages'

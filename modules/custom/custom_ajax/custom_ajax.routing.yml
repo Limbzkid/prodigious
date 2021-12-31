@@ -1,0 +1,40 @@
+custom.file_upload:
+  path: '/upload-file'
+  defaults:
+    _title: 'Upload File'
+    _controller: '\Drupal\custom_ajax\Controller\ajaxController::uploadFile'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+custom.upload_remove:
+  path: '/upload-remove'
+  defaults:
+    _title: 'Remove Uploaded File'
+    _controller: '\Drupal\custom_ajax\Controller\ajaxController::uploadRemove'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+custom.get_projects:
+  path: '/our-work/get-projects'
+  defaults:
+    _title: 'Get Projects'
+    _controller: '\Drupal\custom_ajax\Controller\ajaxController::getProjects'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+custom.set_path:
+  path: '/set-path'
+  defaults:
+    _title: 'Set Path'
+    _controller: '\Drupal\custom_ajax\Controller\ajaxController::setPath'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+custom.get_path:
+  path: '/get-path'
+  defaults:
+    _title: 'Get Path'
+    _controller: '\Drupal\custom_ajax\Controller\ajaxController::getPath'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'

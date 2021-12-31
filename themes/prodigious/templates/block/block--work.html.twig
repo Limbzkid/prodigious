@@ -1,0 +1,7 @@
+{% for item in content['#data_obj'] %}
+  <div class="col-lg-4 col-md-6" data-id="{{ item.nid }}">
+    <div class="project-thumbs">
+      <a href="{{ item.url }}"><img src="{{ item.image }}" class="img-fluid" alt="{{ item.alt }}" title="{{ item.title }}"/></a>
+    </div>
+  </div>
+{% endfor %}

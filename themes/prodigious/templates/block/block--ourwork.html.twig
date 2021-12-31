@@ -1,0 +1,9 @@
+<div class="custom-carousel owl-carousel owl-theme  py-5">
+  {% for item in elements['#data_obj'] %}
+  <a href="{{ item.link }}">
+    <div class="img-slide card-shadow">
+      <img src="{{ item.image }}" class="img-fluid" alt="{{ item.alt }}" title="{{ item.title }}"/>
+    </div>
+  </a>
+  {% endfor %}
+</div>

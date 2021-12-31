@@ -1,0 +1,74 @@
+<div class="row ml-n55">
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="box-card no-card">
+          <h2 class="heading-2  font-bold text-uppercase">CAPABILITIES</h2>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="box-card bg-white card-{{ elements['#data_obj']['moving_image']['color'] }} card-shadow">
+          <h3 class="heading-3 font-bold align-self-start">{{ elements['#data_obj']['moving_image']['name'] | raw }}</h3>
+          <div class="box-card-description">
+            <div class="p-5 p-md-0">
+              {{ elements['#data_obj']['moving_image']['desc'] | raw }}
+            </div>
+          </div>
+          <a href="{{ elements['#data_obj']['moving_image']['link'] }}" class="p15 text-black text-uppercase align-self-end readmore-link">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="box-card bg-white card-{{ elements['#data_obj']['adaptation']['color'] }} card-shadow">
+          <h3 class="heading-3  font-bold align-self-start">{{ elements['#data_obj']['adaptation']['name'] }}</h3>
+          <div class="box-card-description">
+            <div class="p-5 p-md-0">
+              {{ elements['#data_obj']['adaptation']['desc'] | raw }}
+            </div>
+          </div>
+          <a href="{{ elements['#data_obj']['adaptation']['link'] }}" class="p15 text-black text-uppercase align-self-end readmore-link">Read more</a>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="box-card bg-white card-{{ elements['#data_obj']['sound']['color'] }} card-shadow">
+          <h3 class="heading-3  font-bold align-self-start">{{ elements['#data_obj']['sound']['name'] }}</h3>
+          <div class="box-card-description">
+            <div class="p-5 p-md-0">
+              {{ elements['#data_obj']['sound']['desc'] | raw }}
+            </div>
+          </div>
+          <a href="{{ elements['#data_obj']['sound']['link'] }}" class="p15 text-black text-uppercase align-self-end readmore-link">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 mt-n6">
+    <div class="row">
+      <div class="col-12">
+        <div class="box-card bg-white card-{{ elements['#data_obj']['digital']['color'] }} card-shadow">
+          <h3 class="heading-3  font-bold align-self-start">{{ elements['#data_obj']['digital']['name'] }}</h3>
+          <div class="box-card-description">
+            <div class="p-5 p-md-0">
+              {{ elements['#data_obj']['digital']['desc'] | raw }}
+            </div>
+          </div>
+          <a href="{{ elements['#data_obj']['digital']['link'] }}" class="p15 text-black text-uppercase align-self-end readmore-link">Read more</a>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="box-card bg-white card-{{ elements['#data_obj']['still_image']['color'] }} card-shadow">
+          <h3 class="heading-3  font-bold align-self-start">{{ elements['#data_obj']['still_image']['name'] | raw }}</h3>
+          <div class="box-card-description">
+            <div class="p-5 p-md-0">
+              {{ elements['#data_obj']['still_image']['desc'] | raw }}
+            </div>
+          </div>
+          <a href="{{ elements['#data_obj']['still_image']['link'] }}" class="p15 text-black text-uppercase align-self-end readmore-link">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

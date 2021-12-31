@@ -1,0 +1,76 @@
+/* Admin */
+.layout-content {
+    width: 90%;
+    max-width: 520px;
+    margin: 50px auto;
+    font-size: 1.6em;
+    
+}
+.layout-content h1 {
+    font-family: "VolteBold";
+    text-align: center
+}
+.layout-content h2.visually-hidden {
+    display: none
+}
+.layout-content input[type=password], .layout-content input[type=text], .layout-content input[type=email]{
+     border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 5px 10px;
+    height: 38px;
+    width: 100%
+}
+.layout-content label {
+    font-family: "VolteMedium"   
+}
+.layout-content .description {
+    padding: 5px 0 15px;
+    font-size: 14px
+}
+
+
+.layout-content input[type=submit] {
+background: #000;
+    color: #fff;
+    font-size: 15px;
+    padding: 5px 17px;
+    border-radius: 15px;
+    border: none;
+    text-transform: uppercase;
+    font-family: "VolteMedium";
+    margin: 10px auto;
+    display: block
+ }
+.layout-content ul {
+    padding: 20px 0;
+    text-align: center
+}
+.layout-content ul li {
+    
+    display: inline-block;
+    margin-right: 10px
+}
+.layout-content ul li a {
+    border-radius: 15px;
+    color: #000; 
+    display: block;
+    padding: 5px 10px;
+    border: 2px solid #999;
+    font-family: "VolteMedium";
+    font-size: 15px
+    
+}
+.layout-content ul li a:hover {
+    text-decoration: none
+}
+.layout-content p{
+    font-size: 16px;
+    padding: 5px 0
+}
+#user-login-form {
+    max-width: 420px;
+    margin: 0 auto
+}
+
+/* Admin */

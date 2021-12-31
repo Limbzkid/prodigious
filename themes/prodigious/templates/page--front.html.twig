@@ -1,0 +1,87 @@
+{% set vidurl, vid_url = '', '' %}
+{% if node.field_video.target_id %}
+  {% set vidurl = file_url(node.field_video.entity.uri.value) %}
+{% endif %}
+{% if node.field_youtube_video_id.value %}
+  {% set vid_url = 'https://www.youtube.com/embed/' ~ node.field_youtube_video_id.value %}
+{% endif %}
+{% if node.field_vimeo_video_id.value %}
+  {% set vid_url = 'https://player.vimeo.com/video/' ~ node.field_vimeo_video_id.value %}
+{% endif %}
+
+
+
+<section class="p-0">
+  <div class="hero-banner" style="background-image: url({{ file_url(node.field_image.entity.uri.value) }});">
+    <div class="video-wrap bg-red">
+      <a href="javascript:;" class="video-btn d-flex justify-content-center text-white" data-lightbox="true" data-video="{{ vid_url }}" data-videoUrl="{{ vidurl }}">Watch our showreel</a>
+    </div>
+    <div class="hero-container">
+      <div class="row no-gutters">
+        <div class="col-lg-6 hero-caption">
+          <h1 class="heading-2 font-light text-white align-self-center">{{ node.body.value | striptags('<br>') | raw }}</h1>
+          <a href="javascript:;" class="video-btn text-white d-lg-none justify-content-center"  data-lightbox="true" data-video="{{ vid_url }}" data-videoUrl="{{ vidurl }}"></a>
+        </div>
+        <div class="col-12 align-self-end">
+          <div class="bottom-carousel">
+            <div class="row no-gutters justify-content-end">
+              <div class="col-lg-10">
+                <h2 class="heading-2 font-bold text-white pb-5 pb-md-4">{{ node.field_title.value | upper }}</h2>
+                <div class="stagging-carousel owl-carousel owl-theme">
+                  {% for item in node.field_carousel_section %}
+                    <div class="row no-gutters">
+                      <div class="col-12">
+                        <h3 class="heading-3 font-regular text-white pb-3 pb-md-55">{{ item.entity.field_heading.value | raw }}</h3>
+                        <a href="{{ item.entity.field_link.value }}" class="arrow-link mt-3"></a>
+                      </div>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            <div id="customNav" class="owl-nav"></div>
+          </div>
+        </div>
+      </div>
+      <ul class="social-icons">
+        <li><a href="javascript:;" target="_blank" class="facebook"></a></li>
+        <li><a href="javascript:;" target="_blank" class="twitter"></a></li>
+        <li><a href="javascript:;" target="_blank" class="instagram"></a></li>
+        <li><a href="javascript:;" target="_blank" class="youtube"></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="text-center text-md-left" id="approach">
+  {{ page.featured_top}}
+</section>
+
+<section class="text-center text-md-left bg-lightgrey" id="capabilities">
+  <div class="container">
+    {{ drupal_block('home_capabilities') }}
+  </div>
+</section>
+
+<section class="text-center text-md-left">
+  <div class="leftoffset ml-n20">
+    <h2 class="heading-2 font-bold text-uppercase py-5 pl-md-5">Our Work</h2>
+      {{ drupal_block('home_ourwork') }}
+  </div>
+</section>
+
+<section class="text-center text-md-left">
+  <div class="container">
+    <div class="row align-items-end">
+      <div class="col-md-auto ">
+        <h2 class="heading-2 font-bold text-uppercase">Our <br/>NETWork</h2>
+      </div>
+      <div class="col-md-6">
+        <h3 class="heading-3 font-semibold">3,500 production experts <br/> in 40 locations worldwide</h3>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid text-center mt-5" id="ournetwork">
+    {{ drupal_block('home_network') }}
+  </div>
+</section>

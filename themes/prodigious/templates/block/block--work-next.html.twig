@@ -1,0 +1,14 @@
+{% set baseURL = url('<front>')  %}
+<div class="page-navigation">
+  {% if content['#prev'] == '' %}
+    <a href="javascript:;" class="back-nav disabled"><img src="{{ baseURL}}{{ directory}}/images/icons/prev-arrow-white.png" alt="Previous" title="Previous" /></a>
+  {% else %}
+    <a href="{{ content['#prev'] }}" class="back-nav"><img src="{{ baseURL}}{{ directory}}/images/icons/prev-arrow-white.png" alt="Previous" title="Previous"/></a>
+  {% endif %}
+
+  {% if content['#next'] == '' %}
+    <a href="javascript:;" class="next-nav disabled"><img src="{{ baseURL }}{{ directory}}/images/icons/next-arrow-white.png" alt="Next" title="Next"/></a>
+  {% else %}
+    <a href="{{ content['#next'] }}" class="next-nav"><img src="{{ baseURL }}{{ directory}}/images/icons/next-arrow-white.png" alt="Next" title="Next"/></a>
+  {% endif %}
+</div>

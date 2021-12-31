@@ -1,0 +1,5 @@
+name: Custom Pages
+description: 'All Custom pages here'
+type: module
+package: Custom
+core: '8.x'

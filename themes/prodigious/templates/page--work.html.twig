@@ -1,0 +1,143 @@
+{% set base_url = url('<front>') %}
+<section class="p-0">
+  <div class="container-fluid">
+    <div class="row pt-5 pb-md-3">
+      <div class="col-md-12">
+        {{ drupal_block('work_next') }}
+      </div>
+    </div>
+    <div class="row justify-content-center py-5">
+      <div class="col-md-11 col-xl-10">
+        <div class="row justify-content-lg-around">
+          <div class="col-lg-4 py-3 py-lg-0">
+            <div class="category pb-5">
+              {% for cat in node.field_category %}
+                <span class="circletext text-{{ cat.entity.field_color.value }}">{{ cat.entity.name.value }}</span>
+              {% endfor %}
+            </div>
+              <h2 class="heading-2 font-regular text-uppercase pb-4">{{ node.title.value }}</h2>
+              <h3 class="heading-3 font-bold">{{ node.field_brand.value }}</h3>
+          </div>
+          <div class="col-md-4 py-5 py-lg-0">
+              <p class="p20">{{ node.body.value | striptags('<a>') | raw  }}</p>
+          </div>
+          <div class="col-md-3 py-5 py-lg-0">
+            {% if node.field_prodigious_role.value %}
+              <p class="p15 py-3">Prodigious Role: {{ node.field_prodigious_role.value }}</p>
+            {% endif %}
+            {% if node.field_campaign_name.value %}
+              <p class="p15 py-3">Campaign Name: {{ node.field_campaign_name.value }}</p>
+            {% endif %}
+            {% if node.field_campaign_collateral.value %}
+              <p class="p15 py-3">Campaign collateral: {{ node.field_campaign_collateral.value }}</p>
+            {% endif %}
+            {% if node.field_client.value %}
+              <p class="p15 py-3">Client: {{ node.field_client.value }}</p>
+            {% endif %}
+            {% if node.field_agency.value %}
+              <p class="p15 py-3">Agency: {{ node.field_agency.value }}</p>
+            {% endif %}
+            {% if node.field_senior_creative_designer.value %}
+              <p class="p15 py-3">Senior Creative Designer: {{ node.field_senior_creative_designer.value }}</p>
+            {% endif %}
+            {% if node.field_project_manager.value %}
+              <p class="p15 py-3">Project Manager: {{ node.field_project_manager.value }}</p>
+            {% endif %}
+            {% if node.field_principal_software_enginee.value %}
+              <p class="p15 py-3">Principal Software Engineer: {{ node.field_principal_software_enginee.value }}</p>
+            {% endif %}
+            {% if node.field_senior_software_engineer.value %}
+              <p class="p15 py-3">Senior Software Engineer: {{ node.field_senior_software_engineer.value }}</p>
+            {% endif %}
+            {% if node.field_senior_front_end_engineer.value %}
+              <p class="p15 py-3">Senior Front End Engineer: {{ node.field_senior_front_end_engineer.value }}</p>
+            {% endif %}
+            {% if node.field_motion_designer.value %}
+              <p class="p15 py-3">Motion Designer: {{ node.field_motion_designer.value }}</p>
+            {% endif %}
+            {% if node.field_tv_production.value %}
+              <p class="p15 py-3">TV Production	: {{ node.field_tv_production.value }}</p>
+            {% endif %}
+            {% if node.field_executive_creative_directo.value %}
+              <p class="p15 py-3">Executive Creative Director: {{ node.field_executive_creative_directo.value }}</p>
+            {% endif %}
+            {% if node.field_director.value %}
+              <p class="p15 py-3">Director: {{ node.field_director.value }}</p>
+            {% endif %}
+            {% if node.field_business_affairs.value %}
+              <p class="p15 py-3">Business Affairs: {{ node.field_business_affairs.value }}</p>
+            {% endif %}
+            {% if node.field_creative_director.value %}
+              <p class="p15 py-3">Creative Director: {{ node.field_creative_director.value }}</p>
+            {% endif %}
+            {% if node.field_creative_team.value %}
+              <p class="p15 py-3">Creative Team: {{ node.field_creative_team.value }}</p>
+            {% endif %}
+            {% if node.field_tv_production.value %}
+              <p class="p15 py-3">TV Production: {{ node.field_tv_production.value }}</p>
+            {% endif %}
+            {% if node.field_agency_production.value %}
+              <p class="p15 py-3">Agency Production: {{ node.field_agency_production.value }}</p>
+            {% endif %}
+            {% if node.field_dop.value %}
+              <p class="p15 py-3">DOP: {{ node.field_dop.value }}</p>
+            {% endif %}
+            {% if node.field_photographer.value %}
+              <p class="p15 py-3">Photographer: {{ node.field_photographer.value }}</p>
+            {% endif %}
+            {% if node.field_production_exe.value %}
+              <p class="p15 py-3">Production Exe: {{ node.field_production_exe.value }}</p>
+            {% endif %}
+            {% if node.field_production.value %}
+              <p class="p15 py-3">Production: {{ node.field_production.value }}</p>
+            {% endif %}
+            {% if node.field_post_production.value %}
+              <p class="p15 py-3">Post-production: {{ node.field_post_production.value }}</p>
+            {% endif %}
+            {% if node.field_cgivfx.value %}
+              <p class="p15 py-3">CGI & VFX Production​: {{ node.field_cgivfx.value }}</p>
+            {% endif %}
+            {% if node.field_music_.value %}
+              <p class="p15 py-3">Music​: {{ node.field_music_.value }}</p>
+            {% endif %}
+            {% if node.field_transcreation.value %}
+              <p class="p15 py-3">Transcreation: {{ node.field_transcreation.value }}</p>
+            {% endif %}
+            {% if node.field_sound_production.value %}
+              <p class="p15 py-3">Sound Production: {{ node.field_sound_production.value }}</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row  py-md-5">
+      {% for vid in node.field_videos %}
+        <div class="col-12  py-4 py-md-5 video-thumb">
+          {% if vid.entity.field_video_thumb.target_id %}
+            <img src="{{file_url(vid.entity.field_video_thumb.entity.uri.value) }}" class="img-fluid" alt="{{ vid.entity.field_video_thumb.alt }}" title="{{ vid.entity.field_video_thumb.title }}" />
+          {% endif %}
+          {% if vid.entity.field_video.target_id %}
+            <a href="javascript:;" data-lightbox="true" data-video="{{ vid_url }}" data-videoUrl="{{ file_url(vid.entity.field_video.entity.uri.value) }}">
+              <img src="{{ base_url }}{{ directory }}/images/play-icon-shadow.png" alt="Play" title="Play"/>
+            </a>
+          {% elseif vid.entity.field_youtube_video_id.value %}
+            <a href="javascript:;" data-lightbox="true" data-video="https://www.youtube.com/embed/{{ vid.entity.field_youtube_video_id.value }}" data-videoUrl="">
+              <img src="{{ base_url }}{{ directory }}/images/play-icon-shadow.png" alt="Play" title="Play"/>
+            </a>
+          {% elseif vid.entity.field_vimeo_video_id.value %}
+            <a href="javascript:;" data-lightbox="true" data-video="https://player.vimeo.com/video/{{ vid.entity.field_vimeo_video_id.value }}" data-videoUrl="">
+              <img src="{{ base_url }}{{ directory }}/images/play-icon-shadow.png" alt="Play" title="Play" />
+            </a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="pb-0">
+  <div class="row no-gutters other-projects loadmore-sect">
+    {{ drupal_block('work') }}
+  </div>
+</section>

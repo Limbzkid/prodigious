@@ -1,0 +1,57 @@
+<section class="p-0">
+  <div class="hero-banner" style="background-image: url({{ file_url(node.field_image.entity.uri.value) }});">
+    <div class="row no-gutters">
+      <div class="col-12 hero-caption text-center d-flex d-lg-none">
+        {% if node.field_video.target_id %}
+          <a href="javascript:;" class="video-btn text-white  justify-content-center mt-0" data-lightbox="true" data-videoUrl="{{ file_url(node.field_video.entity.uri.value) }}"></a>
+        {% endif %}
+      </div>
+      <div class="col-lg-11 align-self-end">
+        <div class="row no-gutters justify-content-center align-items-end">
+          <div class="col-6 col-lg-4">
+            <div class="heading-box bg-green">
+              <h1 class="heading-1 text-lightwhite">{{ node.title.value }}</h1>
+            </div>
+          </div>
+          <div class="col-auto col-lg-8">
+          <div class="row no-gutters justify-content-between filter-sec">
+            <div class="col-auto position-static">
+              <div class="filter-box">
+                <a href="javacript:;" class="filter-btn  mt-lg-5"></a>
+                <div class="filter-details">
+                  <div class="padAll">
+                    <a href="javascript:;" class="closebtn"><img src="{{ directory }}/images/icons/close.png" alt="close" title="close"/></a>
+                    <div class="row justify-content-center d-flex d-lg-none">
+                      <div class="col-8 text-center">
+                        <h2 class="heading-3 text-white mb-3">What would<br/> you like to see?</h2>
+                      </div>
+                    </div>
+                    {{ drupal_block('work_filter') }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-auto d-none d-lg-block">
+              {% if node.field_video.target_id %}
+                <a href="javascript:;" class="video-btn d-flex justify-content-center text-white" data-lightbox="true" data-videoUrl="{{ file_url(node.field_video.entity.uri.value) }}">Watch our showreel</a>
+              {% endif %}
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="social-icons">
+      <li><a href="javascript:;" target="_blank" class="facebook"></a></li>
+      <li><a href="javascript:;" target="_blank" class="twitter"></a></li>
+      <li><a href="javascript:;" target="_blank" class="instagram"></a></li>
+      <li><a href="javascript:;" target="_blank" class="youtube"></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="pb-0">
+  <div class="row no-gutters portfolio-Wrap loadmore-sect">
+    {{ drupal_block('work_listing') }}
+  </div>
+</section>

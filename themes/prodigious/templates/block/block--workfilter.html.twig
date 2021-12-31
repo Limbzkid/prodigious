@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-12 py-4 py-md-5">
+    <h5 class="heading-5 text-uppercase text-grey mb-5 mb-lg-4">Capability:</h5>
+    <div class="category font-light text-white capability">
+      {% for cat in elements['#data_obj']['category'] %}
+        <span class="circletext text-{{ cat.color }}">{{ cat.name }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-12 py-4 py-md-5">
+    <h5 class="heading-5 text-uppercase text-grey mb-5 mb-lg-4">Market:</h5>
+    <div class="dropdown-list custom-dropdown">
+      <a href="javascript:;" class="dropdown-toggle p15 font-light text-uppercase text-white">Select Market</a>
+      <div class="dropdown-menu market">
+        {% for market in elements['#data_obj']['market'] %}
+          <a href="#" class="dropdown-item p15 font-light text-uppercase">{{ market }}</a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="col-12 py-4 py-md-5">
+    <h5 class="heading-5 text-uppercase text-grey mb-3 mb-lg-4">Industry:</h5>
+    <div class="border-category inds">
+      {% for ind in elements['#data_obj']['industry'] %}
+        <div class="box-col">{{ ind }}</div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

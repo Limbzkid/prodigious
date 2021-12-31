@@ -1,0 +1,21 @@
+name: prodigious
+type: theme
+package: Core
+description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
+# version: VERSION
+core: 8.x
+libraries:
+  - prodigious/global-styling
+base theme: classy
+ckeditor_stylesheets:
+regions:
+  header: Header
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  featured_top: 'Featured top'
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  featured: 'Featured'
+  footer: 'Footer'

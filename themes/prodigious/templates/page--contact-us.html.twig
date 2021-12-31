@@ -1,0 +1,31 @@
+<section class="p-0 pb-lg-5">
+  <div class="hero-banner banner-auto" style="background-image: url({{ file_url(node.field_image.entity.uri.value) }});">
+    <div class="container-fluid  heig100">
+      <div class="row no-gutters align-items-center justify-content-between cust-padd heig100">
+        <div class="col-lg-4 text-center text-lg-left">
+          <img src="{{directory }}/images/header-logo-white.png" class=" w-50 mb-md-3" />
+          <p class="p20 font-light text-white my-5">{{ node.body.value |striptags('<br>') | raw }} </p>
+          <h1 class="heading-1 font-regular text-white mb-5 mb-md-0">{{ node.title.value }}</h1>
+        </div>
+        <div class="col-lg-7">
+        <div class="tabs-Wrap mt-5 mt-md-0">
+          <ul class="tabs">
+            <li>  New Business</li>
+            <li class="active">Careers</li>
+            <li>General Enquiry</li>
+          </ul>
+            <div class="tab-contentWrap">
+              {{ drupal_block('contact_us') }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul class="social-icons">
+      <li><a href="javascript:;" class="facebook"></a></li>
+      <li><a href="javascript:;" class="twitter"></a></li>
+      <li><a href="javascript:;" class="instagram"></a></li>
+      <li><a href="javascript:;" class="youtube"></a></li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+
+  <div class="form-row align-items-end">
+    <div class="form-group col-md-6 py-4">
+      <label for="name">Name:</label>
+      {{ form.name }}
+      <div class="nameErr invalid-feedback"></div>
+    </div>
+    <div class="form-group col-md-6 py-4">
+      <label for="email">EMAIL:</label>
+      {{ form.email }}
+      <div class="mailErr invalid-feedback"></div>
+    </div>
+  </div>
+  {{ form.fids }}
+  <div class="form-row">
+    <div class="form-group col-md-6 py-4">
+      <label for="inputlocation">City, Company:</label>
+      {{ form.location }}
+      <div class="locErr invalid-feedback"></div>
+    </div>
+    <div class="form-group col-6 py-4 attachments">
+        <label for="inputlocation" style="opacity:0">Upload CV:</label>
+      <div class="input-file ">
+        <span class="icon-upload"></span> Upload CV<input type="file" id="careerFile" data-fid=""/>
+      </div>
+      <div class="fidErr invalid-feedback">asdasdasd</div>
+      <ul></ul>
+    </div>
+  </div>
+
+  <div class="form-group py-4">
+    <label for="message">Message</label>
+    {{ form.message}}
+    <div class="msgErr invalid-feedback"></div>
+  </div>
+
+  <div class="form-group">
+    <div class="feedback text-orange"></div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6 pt-4 mb-0">
+      {{ form.submit }}
+    </div>
+  </div>
+
+
+
+{{ form.form_id }}
+{{ form.form_build_id }}
+{{ form.form_token }}

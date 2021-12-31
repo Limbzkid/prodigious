@@ -1,0 +1,79 @@
+{% set count = 1 %}
+<div class="d-lg-none">
+  <h3 class="heading-3 font-bold py-5 text-orange">Swipe to see all our offices</h3>
+  <div class="clock-carousel-center owl-carousel owl-theme py-5">
+    {% for item in content['#data_obj'] %}
+      <div class="items" data-timezone="{{ item.timezone }}" data-selectedZone="{{ item.sys_time }}">
+        <h2 class="heading-3 font-bold">{{ item.name }}</h2>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="clock-carousel-details owl-carousel owl-theme">
+    {% for item in content['#data_obj'] %}
+      <div class="details">
+        <p class="p20">{{ item.desc }}</p>
+        <p class="p20"><a href="mailto:{{ item.email }}">{{ item.email }}</a></p>
+        <p class="p20"><a href="tel:{{ item.contact }}">{{ item.contact }}</a></p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="clock-section">
+  <div class="inside-details">
+    <div class="moon-show"><img src="{{ directory }}/images/icons/moon.png" alt="moon" title="moon" /></div>
+      <div class="clock-center">
+        <img src="{{ directory }}/images/header-logo.png" class="d-lg-none" alt="Prodigious" title="Prodigious" />
+        <div class="d-none d-lg-block">
+          <div class="clock-detail-center pt-5"></div>
+        </div>
+      </div>
+      <div class="sun-show"><img src="{{ directory }}/images/icons/sun.png" alt="sun" title="sun"/></div>
+      <div class="clock-inner">
+        {% for key,val in content['#head']%}
+          <div class="time-clock" data-timezone="{{ key }}" data-selectedZone="{{ val.sys_time}}">
+            <div class="country-time {{ val.class }}"><span>11.10 AM</span></div>
+            <div class="{{ val.c_class }}">
+              <div class="row">
+              {% if key == 'Europe/Amsterdam' %}
+                <div class="col-6">
+                  <ul>
+              {% else %}
+                <div class="col-9">
+                  <ul>
+              {% endif %}
+                    {% for item in content['#region'][key] %}
+                      {% if key == 'Europe/Amsterdam' %}
+                        {% if count > 6 %}
+                          </ul></div><div class="col-6"><ul>
+                          {% set count = 0 %}
+                        {% endif %}
+                        <li>
+                          <p class="country-name">{{ item.name }}</p>
+                          <div class="country-info">
+                            {{ item.addr | raw }}
+                            <p><a href="mailto:{{ item.email }}">{{ item.email }}</a></p>
+                            <p><a href="tel:{{ item.phone }}">{{ item.phone }}</a></p>
+                          </div>
+                        </li>
+                      {% else %}
+                        <li>
+                          <p class="country-name">{{ item.name }}</p>
+                          <div class="country-info">
+                            {{ item.addr | raw }}
+                            <p><a href="mailto:{{ item.email }}">{{ item.email }}</a></p>
+                            <p><a href="tel:{{ item.phone }}">{{ item.phone }}</a></p>
+                          </div>
+                        </li>
+                      {% endif %}
+                      {% set count = count + 1 %}
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,7 @@
+name: Custom Blocks
+description: 'All Custom Blocks defined here'
+type: module
+package: Custom
+core: '8.x'
+dependencies:
+  - drupal:block

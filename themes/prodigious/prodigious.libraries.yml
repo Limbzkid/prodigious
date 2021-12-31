@@ -1,0 +1,19 @@
+global-styling:
+  version: 1.x
+  js:
+    js/bootstrap.min.js: {}
+    js/owl.carousel.js: {}
+    js/get-timezone.js: {}
+    js/main.js: {}
+    js/custom.js: {}
+
+  css:
+    theme:
+      css/bootstrap.min.css: {}
+      css/owl.carousel.min.css: {}
+      css/owl.theme.default.min.css: {}
+      css/customStyle.css: {}
+      css/media.css: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

@@ -1,0 +1,5 @@
+name: Custom Ajax
+description: 'All Ajax functionalities here'
+type: module
+package: Custom
+core: '8.x'

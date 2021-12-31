@@ -1,0 +1,39 @@
+{% set base_url = url('<front>') %}
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ base_url }}">
+      <picture>
+        <source media="(min-width: 60em)" srcset="{{ base_url }}{{ directory }}/images/header-logo.png">
+        <img src="{{ base_url }}{{ directory }}/images/header-logo.png" alt="Prodigious" title="Prodigious">
+      </picture>
+      </a>
+      <a href="javascript:;" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="d-lg-none text-center pb-5">
+          <a href="{{ base_url }}" class="closebtn"><img src="{{ base_url }}{{ directory }}/images/icons/close.png" alt="close" title="close"/></a>
+          <img src="{{ base_url }}{{ directory }}/images/logo-icon.png" alt="Prodigious" title="Prodigious" />
+        </div>
+        <ul class="navbar-nav ml-auto pt-5 pt-lg-0">
+          {% for item in content['#data_obj'] %}
+            {% if item.link != '' %}
+              <li class="nav-item{{ item.class}}">
+                  <a href="{{ item.link }}" class="nav-link">{{ item.title}} </a>
+              </li>
+            {% else %}
+              <li class="nav-item ">
+                <a href="javascript:;" class="nav-link animate-scroll" data-animate="#{{ item.title | lower | replace({' ': ''}) }}">{{ item.title}} </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      <div class="ml-4">
+        <a href="javascript:;" class="searchBtn "></a>
+        <div class="searchinputbox">
+          {{ drupal_block('search_form_block', wrapper=false)}}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
